@@ -34,6 +34,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="app-container">
+        <h2>Choose your Language</h2>
         <div className="button-container">
           <button id='en' onClick={getCountries}>English</button>
           <button id='ar' onClick={getCountries}>Arabic</button>
@@ -42,7 +43,7 @@ const App = () => {
           <button id='tr' onClick={getCountries}>Turkish</button>
 
         </div>
-        <select name="coutnries" id="countries-list">
+        <select name="countries" id="countries-list">
           {
             countries.map((country) => (
               <option value="country">{country}</option>
