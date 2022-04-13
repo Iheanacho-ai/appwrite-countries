@@ -4,6 +4,29 @@ import './App.css';
 
 const App = () => {
   const [countries, setCountries] = useState(["country"])
+  const [buttons, setButtons] = useState([
+    {
+      name: "English",
+      id: "en"
+    },
+    {
+      name: "Arabic",
+      id: "ar"
+    },
+    {
+      name: "Chinese - China",
+      id: "zh-cn"
+    },
+    {
+      name: "Slovenian",
+      id: "sl"
+    },
+    {
+      name: "Turkish",
+      id: "tr"
+    },
+  ])
+  
   const sdk = new Appwrite();
 
   sdk
@@ -36,12 +59,12 @@ const App = () => {
       <div className="app-container">
         <h2>Choose your Language</h2>
         <div className="button-container">
-          <button id='en' onClick={getCountries}>English</button>
-          <button id='ar' onClick={getCountries}>Arabic</button>
-          <button id='zh-cn' onClick={getCountries}>Chinese - China</button>
-          <button id='sl' onClick={getCountries}>Slovenian</button>
-          <button id='tr' onClick={getCountries}>Turkish</button>
+          {
+            buttons.map(({name, id}) => (
+              <button id={id} onClick={getCountries}>{name}</button>
 
+            ))
+          }
         </div>
         <select name="countries" id="countries-list">
           {
